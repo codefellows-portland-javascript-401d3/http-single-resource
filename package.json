@@ -1,0 +1,28 @@
+{
+  "name": "cf401-lab-http-single-resource",
+  "version": "1.0.0",
+  "description": "Code Fellows 401 Project",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "eslint **/*.js",
+    "test": "mocha",
+    "watch": "mocha -w",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeoffreyEmerson/cf401-lab-http-single-resource.git"
+  },
+  "author": "Geoffrey Emerson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeoffreyEmerson/cf401-lab-http-single-resource.git/issues"
+  },
+  "homepage": "https://github.com/GeoffreyEmerson/cf401-lab-http-single-resource.git#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.1.1",
+    "mocha": "^2.5.3"
+  }
+}
