@@ -1,0 +1,31 @@
+{
+  "name": "http-single-resource",
+  "version": "1.0.0",
+  "description": "In memory storage resource",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "pretest": "eslint *.js",
+    "watch": "mocha -w",
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afoldoe/http-single-resource.git"
+  },
+  "author": "Arielle Foldoe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afoldoe/http-single-resource/issues"
+  },
+  "homepage": "https://github.com/afoldoe/http-single-resource#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.1.1",
+    "mocha": "^2.5.3"
+  }
+}
