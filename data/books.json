@@ -1,0 +1,290 @@
+[
+  {
+    "title" : "The Big Tiny: A Built-It-Myself Memoir",
+    "author" : "Williams, Dee",
+    "pubYear" : 2014,
+    "numPages" : 304,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "Wild : From Lost to Found on the Pacific Crest Trail",
+    "author" : "Strayed, Cheryl",
+    "pubYear" : 2012,
+    "numPages" : 338,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "Dark Places",
+    "author" : "Flynn, Gillian",
+    "pubYear" : 2009,
+    "numPages" : 370,
+    "rating" : 4,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "The Martian",
+    "author" : "Weir, Andy",
+    "pubYear" : 2011,
+    "numPages" : 369,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Outlander",
+    "author" : "Gabaldon, Diana",
+    "pubYear" : 1991,
+    "numPages" : 896,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "The Impossible Lives of Greta Wells",
+    "author" : "Greer, Andrew Sean",
+    "pubYear" : 2013,
+    "numPages" : 304,
+    "rating" : 3,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "The Miniaturist",
+    "author" : "Burton, Jessie",
+    "pubYear" : 2014,
+    "numPages" : 400,
+    "rating" : 3,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "The Girl in the Spider's Web",
+    "author" : "Langercrantz, David",
+    "pubYear" : 2015,
+    "numPages" : 416,
+    "rating" : 4,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "Cypherpunks : Freedom and the Future of the Internet",
+    "author" : "Assange, Julian",
+    "pubYear" : 2012,
+    "numPages" : 192,
+    "rating" : 4,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "The 4-Hour Workweek",
+    "author" : "Ferriss, Timothy",
+    "pubYear" : 2007,
+    "numPages" : 308,
+    "rating" : 4,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "The Girl at the End of the World",
+    "author" : "Levesque, Richard",
+    "pubYear" : 2013,
+    "numPages" : 248,
+    "rating" : 3,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "Sharp Objects",
+    "author" : "Flynn,Gillian",
+    "pubYear" : 2006,
+    "numPages" : 254,
+    "rating" : 3,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Seveneves",
+    "author" : "Stephenson, Neal",
+    "pubYear" : 2015,
+    "numPages" : 881,
+    "rating" : 4,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "American Gods",
+    "author" : "Gaiman, Neil",
+    "pubYear" : 2005,
+    "numPages" : 635,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "The Good Girl",
+    "author" : "Kubica, Mary",
+    "pubYear" : 2014,
+    "numPages" : 352,
+    "rating" : 3,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "How We Learn : The Surprising Truth About When, Where, and Why it Happens",
+    "author" : "Carey, Benedict",
+    "pubYear" : 2014,
+    "numPages" : 272,
+    "rating" : 3,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Harry Potter and the Sorcerer's Stone",
+    "author" : "Rowling, J.K.",
+    "pubYear" : 1997,
+    "numPages" : 310,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "Harry Potter and the Chamber of Secrets",
+    "author" : "Rowling, J.K.",
+    "pubYear" : 1998,
+    "numPages" : 341,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "Harry Potter and the Prisoner of Azkaban",
+    "author" : "Rowling, J.K.",
+    "pubYear" : 1999,
+    "numPages" : 435,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "ebook"
+  },
+  {
+    "title" : "Is Everyone Hanging Out Without Me? (And Other Concerns)",
+    "author" : "Kaling, Mindy",
+    "pubYear" : 2011,
+    "numPages" : 222,
+    "rating" : 4,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Yes Please",
+    "author" : "Poehler, Amy",
+    "pubYear" : 2014,
+    "numPages" : 329,
+    "rating" : 3,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Why Not Me?",
+    "author" : "Kaling, Mindy",
+    "pubYear" : 2015,
+    "numPages" : 228,
+    "rating" : 3,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "No Place to Hide : Edward Snowden, the NSA, and the U.S. Surveillance State",
+    "author" : "Greenwald, Glenn",
+    "pubYear" : 2014,
+    "numPages" : 253,
+    "rating" : 4,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Modern Romance",
+    "author" : "Ansari, Aziz",
+    "pubYear" : 2015,
+    "numPages" : 277,
+    "rating" : 3,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Harry Potter and the Goblet of Fire",
+    "author" : "Rowling, J.K.",
+    "pubYear" : 2000,
+    "numPages" : 734,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Harry Potter and the Order of the Phoenix",
+    "author" : "Rowling, J.K.",
+    "pubYear" : 2003,
+    "numPages" : 870,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Harry Potter and the Half-Blood Prince",
+    "author" : "Rowling, J.K.",
+    "pubYear" : 2005,
+    "numPages" : 652,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Harry Potter and the Deathly Hallows",
+    "author" : "Rowling, J.K.",
+    "pubYear" : 2007,
+    "numPages" : 759,
+    "rating" : 5,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "The Casual Vacancy",
+    "author" : "Rowling, J.K.",
+    "pubYear" : 2012,
+    "numPages" : 503,
+    "rating" : 4,
+    "complete" : true,
+    "method" : "audiobook"
+  },
+  {
+    "title" : "Stranger in a Strange Land",
+    "author" : "Heinlein, Robert A.",
+    "pubYear" : 1991,
+    "numPages" : 528,
+    "rating" : null,
+    "complete" : false,
+    "method" : "ebook"
+  },
+  {
+    "title" : "Unnatural Creatures",
+    "author" : "Gaiman, Neil",
+    "pubYear" : 2013,
+    "numPages" : 462,
+    "rating" : null,
+    "complete" : false,
+    "method" : "ebook"
+  },
+  {
+    "title" : "Dragonfly in Amber",
+    "author" : "Gabaldon, Diana",
+    "pubYear" : 2001,
+    "numPages" : 743,
+    "rating" : null,
+    "complete" : false,
+    "method" : "audiobook"
+  }
+]

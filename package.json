@@ -1,0 +1,26 @@
+{
+  "name": "http-single-resource",
+  "version": "1.0.0",
+  "description": "• run following command in terminal `node index.js`",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katesowles/http-single-resource.git"
+  },
+  "author": "Kate Sowles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/katesowles/http-single-resource/issues"
+  },
+  "homepage": "https://github.com/katesowles/http-single-resource#readme",
+  "dependencies": {
+    "querystring": "^0.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  }
+}

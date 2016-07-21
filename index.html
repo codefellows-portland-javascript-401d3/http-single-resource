@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Last 12 Months of Reading</title>
+    <!-- this is gross. i know this. don't think any less of me for it... -->
+    <style>
+      body {
+        margin: 50px;
+      }
+      form {
+        width: 500px;
+        margin: 0 auto;
+      }
+      input {
+        width: 90%;
+        margin: 0 auto 10px auto;
+        display: block;
+        padding: 4px;
+      }
+      button {
+        width: 200px;
+        padding: 8px 10px;
+        margin-left: calc(50% - 110px);
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" onsubmit="postIt(); return false;">
+  		<input name="title" placeholder="add book title here" />
+      <input name="author" placeholder="add author here" />
+      <input name="pubYear" placeholder="add year published here" />
+      <input name="numPages" placeholder="add number of pages here" />
+      <input name="rating" placeholder="add your rating here" />
+      <input name="complete" placeholder="add completion (true / false) here" />
+      <input name="method" placeholder="add read method (audiobook, ebook, print) here" />
+  		<button type="submit">POST</button>
+  	</form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/2.1.0/superagent.min.js"></script>
+  	<script>
+  		function postIt() {
+  			const book = {
+  				title : document.querySelector( 'input[name=title]' ).value,
+  				author : document.querySelector( 'input[name=author]' ).value,
+          pubYear : document.querySelector( 'input[name=pubYear]' ).value,
+          numPages : document.querySelector( 'input[name=numPages]' ).value,
+          rating : document.querySelector( 'input[name=rating]' ).value,
+          complete : document.querySelector( 'input[name=complete]' ).value,
+          method : document.querySelector( 'input[name=method]' ).value,
+  			};
+
+  			superagent
+  				.post('/books')
+  				.send( book )
+  				.end( ( error, response ) => {
+  					alert( response.text );
+  				});
+  		}
+  	</script>
+
+  </body>
+</html>
