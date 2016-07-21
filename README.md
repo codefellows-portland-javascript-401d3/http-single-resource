@@ -6,15 +6,17 @@
 
 ###Routes
 
-=> GET - A 'get' request sent to the 'home' route will return a list of all resources saved thus far.
+Enter "/movies" to get all movies currently in the movie storage. There is one movie pre-saved.
 
-=> POST - A 'post' request will save the 'post' body to in-memory storage.
+Enter "/movies?title=[title of movie you would like to retrieve]" to retrieve a movie from storage.
 
-=> PUT - A 'put' request will replace the named resource that the request is being sent to.
+Enter "/movies/post?title=[movie title]&year=[movie year]" to add to the movie storage.
 
-=> DELETE - A 'delete' request will deleted the named resource that the request is being sent to.
+Enter "/movies/put?oldtitle=[title of movie you want to change]&title=[new title]&year=[new year]" to change a movie in storage.
+
+Enter "/movies/delete?title=[movie you would like to delete]" to delete a movie from storage.
 
 
-Not all routes will support each of these methods. If a method is not supported, the user should be made aware (with 400 status code).
+Not all routes will support each of these methods. If a method is not supported, the user will be made aware (with 400 status code).
 
 Also, verbs that are missing expected arguments should respond with a 400 status code.
