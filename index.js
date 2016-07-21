@@ -1,4 +1,4 @@
-const server = require('./server');
+const server = require('./lib/server');
 
 const port = process.argv[2] || 8080;
 

@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [0.0.0] - YYYY-MM-DD
+## [0.1.0] - 2015-7-21
 ### Added
-- [Stuff]
+- Added file skeleton
+- Included modules
