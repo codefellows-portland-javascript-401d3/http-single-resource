@@ -17,6 +17,4 @@ Enter "/movies/put?oldtitle=[title of movie you want to change]&title=[new title
 Enter "/movies/delete?title=[movie you would like to delete]" to delete a movie from storage.
 
 
-Not all routes will support each of these methods. If a method is not supported, the user will be made aware (with 400 status code).
-
-Also, verbs that are missing expected arguments should respond with a 400 status code.
+Not all routes will support each of these methods. If a method is not supported, the user will be made aware with a message.
