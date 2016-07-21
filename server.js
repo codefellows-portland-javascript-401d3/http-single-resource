@@ -12,6 +12,22 @@ module.exports = http.createServer((req, res) => {
   let pathname = url.parse(req.url).pathname;
   let regex = new RegExp(`/notes`);
   let method = req.method;
+
+  if(!pathname.match(regex) && pathname !== `/`) {
+    res.writeHead(200, {"Content-type": "text/html"});
+    let content = `<!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <title>Data Storage</title>
+      </head>
+      <body>
+        ERROR 404
+      </body>
+      </html>`;
+    res.write(content);
+    res.end();
+  }
   
   if(pathname === `/`) {
     res.statusCode = 200;
@@ -23,7 +39,6 @@ module.exports = http.createServer((req, res) => {
       });
     });
   }
-  
   if(pathname === `/notes` && method.toLowerCase() === `get`) {
     res.statusCode = 200;
     storage.get((storageArr) => {
