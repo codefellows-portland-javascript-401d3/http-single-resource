@@ -13,7 +13,7 @@ describe('this api server', () => {
     // Set up two test "users"
     request
       .post('/api/users')
-      .send({ name: 'test-user1', security: 'low' })
+      .send({ name: 'test-user0', security: 'low' })
 			.end((err, res) => {
         if (err) return done(err);
 			});
@@ -52,22 +52,35 @@ describe('this api server', () => {
 			});
 	});
 
-  it('get on user root returns list', done => {
+  it('/GET on user root returns list', done => {
     request
       .get('/api/users')
       .end((err, res) => {
 				if (err) return done(err);
 				assert.equal(res.statusCode, 200);
 				assert.equal(res.header['content-type'], 'application/json');
-        console.log(res.text);
 				let result = JSON.parse(res.text);
         assert.equal(result.msg, 'success');
-        assert.ok(result.users.length);
+        assert(result.users.length > 0);
 				done();
       });
   });
 
-	it('post method completes successfully', done => {
+  it('/GET on user root with id returns chosen user', done => {
+    request
+      .get('/api/users/1')
+      .end((err, res) => {
+				if (err) return done(err);
+				assert.equal(res.statusCode, 200);
+				assert.equal(res.header['content-type'], 'application/json');
+				let result = JSON.parse(res.text);
+        assert.equal(result.msg, 'success');
+        assert.equal(result.user.name, 'test-user1');
+				done();
+      });
+  });
+
+	it('/POST method completes successfully', done => {
 		request
 			.post('/api/users')
       .send({ name: 'test-user3', security: 'low' })
@@ -75,7 +88,6 @@ describe('this api server', () => {
 				if (err) return done(err);
 				assert.equal(res.statusCode, 200);
 				assert.equal(res.header['content-type'], 'application/json');
-        console.log(res.text);
 				let result = JSON.parse(res.text);
         assert.equal(result.msg, 'success');
         done();
