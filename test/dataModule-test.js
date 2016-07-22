@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 const assert = chai.assert;
-const dataStore = require('../lib/DataModule');
+const dataStore = require('../lib/dataModule');
 
 const data2 = new dataStore();
 
