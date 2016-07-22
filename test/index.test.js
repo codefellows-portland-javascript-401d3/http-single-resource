@@ -31,12 +31,12 @@ describe('this api server', () => {
   });
 
   after( () => {
-    testIds.forEach( (id,index) => {
+    testIds.forEach( id => {
       request
       .delete(`/api/users/${id}`)
       .end((err) => {
         if (err) return done(err);
-        testIds.splice(index,1);
+        testIds.splice(testIds.indexOf(id),1);
       });
     });
   });
@@ -162,7 +162,7 @@ describe('this api server', () => {
 
   });
 
-  describe('/DELTE method removes data permenently', () => {
+  describe('/DELETE method removes data permenently', () => {
 
     it('/DELETE method removes user', done => {
       request
@@ -177,7 +177,7 @@ describe('this api server', () => {
         });
     });
 
-    it('/GET on recently posted user returns correct user', done => {
+    it('/GET on recently deleted user returns fail message', done => {
       request
         .get('/api/users/1')
         .end((err, res) => {
