@@ -6,15 +6,17 @@
 
 ###Routes
 
-Enter "/movies" to get all movies currently in the movie storage. There is one movie pre-saved.
+GET to "/movies" to get all movies currently in the movie storage. There is one movie pre-saved.
 
-Enter "/movies?title=[title of movie you would like to retrieve]" to retrieve a movie from storage.
+GET to "/movies/title", where 'title' is the movie you're searching for in order to retrieve a single movie from storage.
 
-Enter "/movies/post?title=[movie title]&year=[movie year]" to add to the movie storage.
+POST to "/movies" => Send JSON in request body like this: {title: [movie title], year: [year]} for the movie you'd like to add to storage.
 
-Enter "/movies/put?oldtitle=[title of movie you want to change]&title=[new title]&year=[new year]" to change a movie in storage.
+PUT to "/movies/oldtitle" to replace 'oldtitle' with new movie sent as JSON in request body as specified above.
 
-Enter "/movies/delete?title=[movie you would like to delete]" to delete a movie from storage.
+DELETE to "/movies/title" to delete 'title' from storage.
+
+Spaces in movie titles specified in URL should be replaced with an underscore. At the moment all requests are case-sensitive.
 
 
 Not all routes will support each of these methods. If a method is not supported, the user will be made aware with a message.
