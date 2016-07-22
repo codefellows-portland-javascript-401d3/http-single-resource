@@ -42,7 +42,7 @@ describe('http-server-routes and http verbs testing', function () {
 
   it('POSTS a movie', function (done) {
     req.post('/movies')
-      .send({'title': 'The Godfather', 'year': 1973})
+      .send({title: 'A Few Good Men', year: 1990})
       .end(function(err, res) {
         if (err) return done(err);
         assert.deepEqual('text/html', res.headers['content-type']);
@@ -53,8 +53,8 @@ describe('http-server-routes and http verbs testing', function () {
   });
 
   it('replaces one movie with PUT', function (done) {
-    req.put('/movies/The_Godfather')
-      .send({'title': 'Ghost', 'year': 1990})
+    req.put('/movies/A_Few_Good_Men')
+      .send({title: 'Test Movie', 'year': 1986})
       .end(function (err, res) {
         if (err) return done(err);
         assert.deepEqual('text/html', res.headers['content-type']);
@@ -65,7 +65,7 @@ describe('http-server-routes and http verbs testing', function () {
   });
 
   it('DELETES a movie', function (done) {
-    req.delete('/movies/Ghost_Busters')
+    req.delete('/movies/Test_Movie')
       .end(function (err, res) {
         if (err) return done(err);
         assert.deepEqual('text/html', res.headers['content-type']);

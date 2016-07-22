@@ -24,7 +24,7 @@ describe('data storage module', function() {
 
   it('adds a new item', function (done) {
     data2.addMovie({title: 'The Godfather', year: 1973}, function(message) {
-      assert.ok(data2.movies.length === 2);
+      assert.isOk(data2.movies.length === 2);
       assert.deepEqual('Movie successfully added.', message);
       done();
     });
@@ -33,22 +33,24 @@ describe('data storage module', function() {
 
   it('replaces an item with a new item', function (done) {
     data2.changeMovie({title: 'The Godfather'}, {title: 'The Catfather', year: 2016}, function(message) {
-      assert.ok(data2.movies.length === 2);
+      assert.isOk(data2.movies.length === 2);
       assert.deepEqual('Movie successfully updated.', message);
+      done();
     });
-    done();
+    // done();
   });
 
   it('deletes an item', function (done) {
     data2.deleteMovie({title: 'The Catfather'}, function(message) {
-      assert.ok(data2.movies.length === 1);
+      assert.isOk(data2.movies.length === 1);
       assert.deepEqual('Movie successfully deleted.', message);
+      done();
     });
-    done();
+    // done();
   });
 
-  after(function (done) {
-    data2.movies = [{title: 'Ghost Busters', year: 1984}];
-    done();
-  });
+  // after(function (done) {
+  //   data2.movies = [{title: 'Ghost Busters', year: 1984}];
+  //   done();
+  // });
 });
