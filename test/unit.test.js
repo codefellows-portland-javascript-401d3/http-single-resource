@@ -23,9 +23,9 @@ describe(`storage functionality`, () => {
 
   it(`adds to the storage`, (done) => {
     let fields = {name: `Bradski`};
-    let i = 1;
+    // let i = 1;
     storage.add(fields, (storageArr) => {
-      assert.deepEqual(storageArr[2], { name: `Bradski`, id: 2 });
+      assert.deepEqual(storageArr[2], { name: `Bradski`, id: 3 });
       done();
     });
   });

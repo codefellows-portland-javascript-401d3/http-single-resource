@@ -18,7 +18,7 @@ describe(`testing server`, () => {
       });
   });
 
-  it(`tests /notes`, (done) => {
+  it(`tests get request`, (done) => {
     request
       .get(`/notes`)
       .end((err, res) => {
@@ -27,7 +27,7 @@ describe(`testing server`, () => {
     done();
   });
 
-  it(`tests /notes/someresource`, (done) => {
+  it(`tests get request /notes/someresource`, (done) => {
     request
       .get(`/notes/1`)
       .end((err, res) => {
@@ -36,7 +36,23 @@ describe(`testing server`, () => {
     done();
   });
 
-  
+  it(`tests post request`, (done) => {
+    request
+      .post(`/notes`)
+      .end((err, res) => {
+        assert.equal(res.statusCode, 200);
+        done();
+      });
+  });
+
+  it(`tests delete request`, (done) => {
+    request
+      .del(`/notes`)
+      .end((err, res) => {
+        assert.equal(res.statusCode, 200);
+        done();
+      });
+  });
 
   
 });

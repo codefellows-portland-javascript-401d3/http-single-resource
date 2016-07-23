@@ -38,8 +38,8 @@ module.exports = http.createServer((req, res) => {
         res.end();
       });
     });
-  }
-  if(pathname === `/notes` && method.toLowerCase() === `get`) {
+
+  } else if(pathname === `/notes` && method.toLowerCase() === `get`) {
     res.statusCode = 200;
     storage.get((storageArr) => {
       console.log(storageArr);
@@ -56,19 +56,29 @@ module.exports = http.createServer((req, res) => {
     let form = new formidable.IncomingForm();
     form.parse(req, (err, fields, files) => {
       res.writeHead(200, {"Content-Type": "text/plain"});
-      res.write(`received upload`);
-      res.end(util.inspect({fields: fields, files: files}));
+      res.write(`received upload\n`);
+      res.end(util.inspect({fields}));
       storage.add(fields, (fields) => {
         console.log(fields);
       });
     }); 
 
-  } else if ( method.toLowerCase() === `delete`) {
-    console.log(`start ot delete`);
+  } else if (method.toLowerCase() === `delete`) {
     storage.del(pathname, (storageArr) => {
       console.log(`End of storage.del`);
     });
     res.end();
-  }
   
+  } else if (method.toLowerCase() === `put` && pathname === `/notes`) {
+    console.log(`start of put`);
+    let form = new formidable.IncomingForm();
+    form.parse(req, (err, fields, files) => {
+      res.writeHead(200, {"Content-Type": "text/plain"});
+      res.write(`received upload\n`);
+      res.end(util.inspect({fields, files: files}));
+      storage.put(pathname, fields, (fields) => {
+        	  console.log(fields);
+      });
+    });
+  }
 });
