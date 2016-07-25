@@ -45,11 +45,20 @@ describe(`testing server`, () => {
       });
   });
 
-  it(`tests delete request`, (done) => {
+  it(`tests delete request`, done => {
     request
       .del(`/notes`)
       .end((err, res) => {
         assert.equal(res.statusCode, 200);
+        done();
+      });
+  });
+
+  it(`tests server error `, done => {
+    request
+      .get(`/bob`)
+      .end((err, res) => {
+        assert.equal(res.statusCode, 404);
         done();
       });
   });

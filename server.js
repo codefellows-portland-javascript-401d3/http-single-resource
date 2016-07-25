@@ -14,7 +14,7 @@ module.exports = http.createServer((req, res) => {
   let method = req.method;
 
   if(!pathname.match(regex) && pathname !== `/`) {
-    res.writeHead(200, {"Content-type": "text/html"});
+    res.writeHead(404, {"Content-type": "text/html"});
     let content = `<!DOCTYPE html>
       <html lang="en">
       <head>
