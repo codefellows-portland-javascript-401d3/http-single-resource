@@ -1,152 +1,114 @@
-const assert = require('chai').assert
-const Store = require('../lib/store')
-const fooStore = new Store()
+const assert = require('chai').assert;
+const Store = require('../lib/store');
+const fooStore = new Store();
 
 describe('data store async simulator', () => {
 
-  let testIds = []
+  let testIds = [];
 
   before( done => {
     // Set up two test "users"
     fooStore
       .add({ name: 'foo0', value: '42' })
       .then( result => {
-        assert.ok(result.data)
-        testIds.push(result.data.id)
+        assert.ok(result.data);
+        testIds.push(result.data.id);
       })
-      .catch( err => done(err) )
+      .catch( err => done(err) );
     fooStore
       .add({ name: 'foo1', value: '3.14159' })
       .then( result => {
-        assert.ok(result.data)
-        testIds.push(result.data.id)
-        done()
+        assert.ok(result.data);
+        testIds.push(result.data.id);
+        done();
       })
-      .catch( err => done(err) )
-  })
+      .catch( err => done(err) );
+  });
 
   after( () => {
     testIds.forEach( id => {
       fooStore
       .delete(id)
       .then( result => {
-        testIds.splice(testIds.indexOf(result.id),1)
+        testIds.splice(testIds.indexOf(result.id),1);
       })
-      .catch( err => done(err) )
+      .catch( err => done(err) );
     })
-  })
+  });
 
   it('returns error for bad id', done => {
     fooStore
       .get(42)
       .then( result => {
-        assert(false, 'bad id should not succeed')
-        done(result)
+        assert(false, 'bad id should not succeed');
+        done(result);
       })
-      .catch( () => done() )
-  })
+      .catch( () => done() );
+  });
 
   it('method getAll() returns list', done => {
     fooStore
       .getAll()
       .then( result => {
-        assert.equal(result.msg, 'success')
-        assert(result.data.length > 1)
-        done()
+        assert.equal(result.msg, 'success');
+        assert(result.data.length > 1);
+        done();
       })
-      .catch( err => done(err) )
-  })
+      .catch( err => done(err) );
+  });
 
   it('method get() with id returns chosen user', done => {
     fooStore
       .get(1)
       .then( result => {
-        assert.equal(result.msg, 'success')
-        assert.equal(result.data.name, 'foo1')
-        done()
+        assert.equal(result.msg, 'success');
+        assert.equal(result.data.name, 'foo1');
+        done();
       })
-      .catch( err => done(err) )
-  })
+      .catch( err => done(err) );
+  });
 
-  testUser = { name: 'foo3', security: 'low' }
+  testUser = { name: 'foo3', security: 'low' };
 
   it('method add() completes successfully', done => {
     fooStore
       .add(testUser)
       .then( result => {
-        testUser.id = result.data.id
-        assert.equal(result.msg, 'success')
-        assert.equal(result.data.name, testUser.name)
+        testUser.id = result.data.id;
+        assert.equal(result.msg, 'success');
+        assert.equal(result.data.name, testUser.name);
       })
       .catch( err => done(err) )
       .then( () => {
         fooStore
           .get(testUser.id)
           .then( result => {
-            assert.equal(result.msg, 'success')
-            assert.equal(result.data.name, testUser.name)
-            testUser = result.data
-            done()
+            assert.equal(result.msg, 'success');
+            assert.equal(result.data.name, testUser.name);
+            testUser = result.data;
+            done();
           })
-          .catch( err => done(err) )
+          .catch( err => done(err) );
+      });
+  });
+
+  it('method update() completes successfully', done => {
+    testUser.name = 'test-put';
+    fooStore
+      .update(testUser.id, testUser)
+      .then( result => {
+        assert.equal(result.msg, 'success', result.text);
+        assert.equal(result.data.name, testUser.name);
+        fooStore
+          .get(testUser.id)
+          .then( result => {
+            assert.equal(result.msg, 'success', result.text);
+            assert.equal(result.data.name, testUser.name, result.text);
+            done();
+          })
+          .catch( err => done(err) );
       })
-  })
+      .catch( err => done(err) );
+  });
 
-  describe('/PUT method updates data already in storage', () => {
-
-    it('/PUT method completes successfully', done => {
-      testUser.name = 'test-put'
-      fooStore
-        .update(testUser.id, testUser)
-        .then( result => {
-          assert.equal(result.msg, 'success', result.text)
-          assert.equal(result.data.name, testUser.name)
-          done()
-        })
-        .catch( err => done(err) )
-    })
-
-    it('/GET on recently updated user returns correct changes', done => {
-      fooStore
-        .get(testUser.id)
-        .then( result => {
-          assert.equal(result.msg, 'success', result.text)
-          assert.equal(result.data.name, testUser.name, result.text)
-          done()
-        })
-        .catch( err => done(err) )
-    })
-
-  })
-
-  // describe('/DELETE method removes data permenently', () => {
-
-  //   it('/DELETE method removes user', done => {
-  //     request
-  //       .delete('/api/users/1')
-  //       .end((err, res) => {
-  //         if (err) return done(err)
-  //         assert.equal(res.statusCode, 200)
-  //         assert.equal(res.header['content-type'], 'application/json')
-  //         let result = JSON.parse(res.text)
-  //         assert.equal(result.msg, 'success')
-  //         done()
-  //       })
-  //   })
-
-  //   it('/GET on recently deleted user returns fail message', done => {
-  //     request
-  //       .get('/api/users/1')
-  //       .end((err, res) => {
-  //         if (err) return done(err)
-  //         assert.equal(res.statusCode, 200)
-  //         assert.equal(res.header['content-type'], 'application/json')
-  //         let result = JSON.parse(res.text)
-  //         assert.equal(result.msg, 'fail')
-  //         done()
-  //       })
-  //   })
-
-  // })
-
-})
+});
