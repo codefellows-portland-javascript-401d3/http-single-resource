@@ -45,7 +45,7 @@ describe('http-server-routes and http verbs testing', function () {
       .send({title: 'A Few Good Men', year: 1990})
       .end(function(err, res) {
         if (err) return done(err);
-        assert.deepEqual('text/html', res.headers['content-type']);
+        assert.deepEqual('text/plain', res.headers['content-type']);
         expect(res).to.have.status(200);
         expect(res.text).to.have.string('Movie successfully added.');
         done();
@@ -57,7 +57,7 @@ describe('http-server-routes and http verbs testing', function () {
       .send({title: 'Test Movie', 'year': 1986})
       .end(function (err, res) {
         if (err) return done(err);
-        assert.deepEqual('text/html', res.headers['content-type']);
+        assert.deepEqual('text/plain', res.headers['content-type']);
         expect(res).to.have.status(200);
         expect(res.text).to.have.string('Movie successfully updated.');
         done();
@@ -68,7 +68,7 @@ describe('http-server-routes and http verbs testing', function () {
     req.delete('/movies/Test_Movie')
       .end(function (err, res) {
         if (err) return done(err);
-        assert.deepEqual('text/html', res.headers['content-type']);
+        assert.deepEqual('text/plain', res.headers['content-type']);
         expect(res).to.have.status(200);
         expect(res.text).to.have.string('Movie successfully deleted.');
         done();
