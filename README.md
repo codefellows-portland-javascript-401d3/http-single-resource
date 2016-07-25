@@ -21,4 +21,4 @@ Spaces in movie titles specified in URL should be replaced with an underscore. A
 
 Not all routes will support each of these methods. If a method is not supported, the user will be made aware with a message.
 
-If a request is successful, response data will always be sent as JSON. If a request is unsuccessful, a response status of 404 will be sent, and all response messages will always be sent as plain text, ensuring that no assumptions are made about the end users appliation.
+If a request is successful, response data will always be sent as JSON. If a request is unsuccessful, a response status of 404 will be sent, and all response messages will be sent as plain text.
