@@ -33,7 +33,7 @@ describe('data store async simulator', () => {
         testIds.splice(testIds.indexOf(result.id),1);
       })
       .catch( err => done(err) );
-    })
+    });
   });
 
   it('returns error for bad id', done => {
