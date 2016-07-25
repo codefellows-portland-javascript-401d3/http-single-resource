@@ -17,14 +17,14 @@ describe('this api server', () => {
       .post('/api/users')
       .send({ name: 'test-user0', security: 'low' })
       .end((err, res) => {
-        testIds.push(JSON.parse(res.text).user.id);
+        testIds.push(JSON.parse(res.text).data.id);
         if (err) return done(err);
       });
     request
       .post('/api/users')
       .send({ name: 'test-user1', security: 'low' })
       .end((err, res) => {
-        testIds.push(JSON.parse(res.text).user.id);
+        testIds.push(JSON.parse(res.text).data.id);
         if (err) return done(err);
         done();
       });
@@ -72,7 +72,7 @@ describe('this api server', () => {
         assert.equal(res.header['content-type'], 'application/json');
         let result = JSON.parse(res.text);
         assert.equal(result.msg, 'success');
-        assert(result.users.length > 0);
+        assert(result.data.length > 0);
         done();
       });
   });
@@ -86,7 +86,7 @@ describe('this api server', () => {
         assert.equal(res.header['content-type'], 'application/json');
         let result = JSON.parse(res.text);
         assert.equal(result.msg, 'success');
-        assert.equal(result.user.name, 'test-user1');
+        assert.equal(result.data.name, 'test-user1');
         done();
       });
   });
@@ -104,9 +104,9 @@ describe('this api server', () => {
           assert.equal(res.statusCode, 200);
           assert.equal(res.header['content-type'], 'application/json');
           let result = JSON.parse(res.text);
-          testUser.id = result.user.id;
+          testUser.id = result.data.id;
           assert.equal(result.msg, 'success');
-          assert.equal(result.user.name, testUser.name);
+          assert.equal(result.data.name, testUser.name);
           done();
         });
     });
@@ -120,8 +120,8 @@ describe('this api server', () => {
           assert.equal(res.header['content-type'], 'application/json');
           let result = JSON.parse(res.text);
           assert.equal(result.msg, 'success');
-          assert.equal(result.user.name, testUser.name);
-          testUser = result.user;
+          assert.equal(result.data.name, testUser.name);
+          testUser = result.data;
           done();
         });
     });
@@ -141,7 +141,7 @@ describe('this api server', () => {
           assert.equal(res.header['content-type'], 'application/json');
           let result = JSON.parse(res.text);
           assert.equal(result.msg, 'success', res.text);
-          assert.equal(result.user.name, testUser.name);
+          assert.equal(result.data.name, testUser.name);
           done();
         });
     });
@@ -155,7 +155,7 @@ describe('this api server', () => {
           assert.equal(res.header['content-type'], 'application/json');
           let result = JSON.parse(res.text);
           assert.equal(result.msg, 'success', res.text);
-          assert.equal(result.user.name, testUser.name, res.text);
+          assert.equal(result.data.name, testUser.name, res.text);
           done();
         });
     });
