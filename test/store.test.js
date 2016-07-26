@@ -11,29 +11,35 @@ describe('data store async simulator', () => {
     fooStore
       .add({ name: 'foo0', value: '42' })
       .then( result => {
-        assert.ok(result.data);
-        testIds.push(result.data.id);
+        assert.equal(result.name, 'foo0');
+        testIds.push(result.id);
       })
-      .catch( err => done(err) );
-    fooStore
-      .add({ name: 'foo1', value: '3.14159' })
-      .then( result => {
-        assert.ok(result.data);
-        testIds.push(result.data.id);
-        done();
+      .then( () => {
+        fooStore
+          .add({ name: 'foo1', value: '3.14159' })
+          .then( result => {
+            assert.equal(result.name, 'foo1');
+            testIds.push(result.id);
+            done();
+          });
       })
       .catch( err => done(err) );
   });
 
-  after( () => {
+  after( done => {
+    let promises = [];
     testIds.forEach( id => {
-      fooStore
-      .delete(id)
-      .then( result => {
-        testIds.splice(testIds.indexOf(result.id),1);
-      })
-      .catch( err => done(err) );
+      promises.push(
+        fooStore
+        .delete(id)
+        .then( result => {
+          testIds.splice(testIds.indexOf(result.id),1);
+        })
+      );
     });
+    Promise.all(promises)
+    .then( () => done() )
+    .catch( err => done(err) );
   });
 
   it('returns error for bad id', done => {
@@ -50,8 +56,7 @@ describe('data store async simulator', () => {
     fooStore
       .getAll()
       .then( result => {
-        assert.equal(result.msg, 'success');
-        assert(result.data.length > 1);
+        assert(result.length > 1);
         done();
       })
       .catch( err => done(err) );
@@ -61,8 +66,7 @@ describe('data store async simulator', () => {
     fooStore
       .get(1)
       .then( result => {
-        assert.equal(result.msg, 'success');
-        assert.equal(result.data.name, 'foo1');
+        assert.equal(result.name, 'foo1');
         done();
       })
       .catch( err => done(err) );
@@ -74,18 +78,16 @@ describe('data store async simulator', () => {
     fooStore
       .add(testUser)
       .then( result => {
-        testUser.id = result.data.id;
-        assert.equal(result.msg, 'success');
-        assert.equal(result.data.name, testUser.name);
+        testUser.id = result.id;
+        assert.equal(result.name, testUser.name);
       })
       .catch( err => done(err) )
       .then( () => {
         fooStore
           .get(testUser.id)
           .then( result => {
-            assert.equal(result.msg, 'success');
-            assert.equal(result.data.name, testUser.name);
-            testUser = result.data;
+            assert.equal(result.name, testUser.name);
+            testUser = result;
             done();
           })
           .catch( err => done(err) );
@@ -97,16 +99,15 @@ describe('data store async simulator', () => {
     fooStore
       .update(testUser.id, testUser)
       .then( result => {
-        assert.equal(result.msg, 'success', result.text);
-        assert.equal(result.data.name, testUser.name);
+        assert.equal(result.name, testUser.name);
+      })
+      .then( () => {
         fooStore
           .get(testUser.id)
           .then( result => {
-            assert.equal(result.msg, 'success', result.text);
-            assert.equal(result.data.name, testUser.name, result.text);
+            assert.equal(result.name, testUser.name, result);
             done();
-          })
-          .catch( err => done(err) );
+          });
       })
       .catch( err => done(err) );
   });
